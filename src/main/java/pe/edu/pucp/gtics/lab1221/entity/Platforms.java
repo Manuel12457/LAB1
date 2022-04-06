@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "palaformas")
+@Table(name = "distribuidoras")
 public class Platforms {
 
     @Id
