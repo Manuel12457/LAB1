@@ -3,6 +3,7 @@ package pe.edu.pucp.gtics.lab1221.controller;
 public class DistributorsController {
 
     public String listaDistribuidoras (){
+        //hola
         return "";
     };
 
