@@ -11,6 +11,7 @@ import pe.edu.pucp.gtics.lab1221.repository.DistributorsRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.ui.Model;
+//prueba1
 
 @Controller
 @RequestMapping("/distributors")
