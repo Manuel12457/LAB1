@@ -1,4 +1,4 @@
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -64,13 +64,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="distribuidoras,i : ${listaDistribuidoras}">
-                        <td th:text="${i.index + 1}"></td>
-                        <td th:text="${distribuidoras.nombre}"></td>
-                        <td th:text="${distribuidoras.fundacion}"></td>
-                        <td th:text="${distribuidoras.sede}"></td>
-                        <td><a class="btn btn-primary" th:href="@{'/distribuidoras/editar?id=' + ${distribuidoras.id}}">Editar</a></td>
-                        <td><a class="btn btn-danger" th:href="@{'/distribuidoras/borrar?id=' + ${distribuidoras.id}}">Borrar</a></td>
+                    <tr>
+                        <!-- Completar -->
+                        <!-- Completar -->
+                        <!-- Completar -->
+                        <!-- Completar -->
+                        <td><a class="btn btn-primary" href="/distribuidoras/editar?id=4">Editar</a></td>
+                        <td><a class="btn btn-danger" href="/distribuidoras/borrar?id=4">Borrar</a></td>
                     </tr>
                     </tbody>
                 </table>
