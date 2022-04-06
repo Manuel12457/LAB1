@@ -17,8 +17,8 @@ import org.springframework.ui.Model;
 //prueba1
 
 @Controller
-@RequestMapping("/distributors")
-public class DistributorsController {
+@RequestMapping("/distribuidoras")
+public class DistribuidorasController {
 
     @Autowired
     DistributorsRepository distributorsRepository;
