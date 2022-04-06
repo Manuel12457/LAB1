@@ -1,7 +1,5 @@
 package pe.edu.pucp.gtics.lab1221.entity;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
 
 @Entity

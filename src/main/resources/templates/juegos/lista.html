@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.com">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -62,13 +62,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <!-- Completar -->
-                        <!-- Completar -->
-                        <!-- Completar -->
-                        <!-- Completar -->
-                        <td><a class="btn btn-primary" href="/distribuidoras/editar?id=4">Editar</a></td>
-                        <td><a class="btn btn-danger" href="/distribuidoras/borrar?id=4">Borrar</a></td>
+                    <tr th:each="juego, i : ${listaJuegos}">
+                        <td th:text="${i.index + 1}"></td>
+                        <td th:text="${juego.nombre}"></td>
+                        <td th:text="${juego.descripcion}"></td>
+                        <td th:text="${juego.precio}"></td>
+                        <td><a class="btn btn-primary" th:href="@{'/distribuidoras/editar?id=' + ${juego.idjuego}}">Editar</a></td>
+                        <td><a class="btn btn-danger" th:href="@{'/distribuidoras/borrar?id=' + ${juego.idjuego}}">Borrar</a></td>
                     </tr>
                     </tbody>
                 </table>
