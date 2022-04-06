@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import javax.persistence.Entity;
-//prueba
+//prueba1
 
 @Entity
 @Table(name="distribuidoras")
