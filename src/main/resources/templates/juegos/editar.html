@@ -50,25 +50,31 @@
         <div class="container-fluid">
                 <form method="POST" th:action="@{'/juegos/guardar'}">
                     <input name="idjuego" type="number" class="form-control" id="idjuego" th:value="${juego.idjuego}" hidden>
+
+                    <input name="idgenero" type="number" class="form-control" id="idgenero" th:value="${juego.idgenero}" hidden>
+                    <input name="ideditora" type="number" class="form-control" id="ideditora" th:value="${juego.ideditora}" hidden>
+                    <input name="iddistribuidora" type="number" class="form-control" id="iddistribuidora" th:value="${juego.iddistribuidora}" hidden>
+
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
                         <input name="nombre" type="text" class="form-control" id="nombre" maxlength="50" th:value="${juego.nombre}" required>
                     </div>
                     <div class="mb-3">
-                        <label for="descripcion" class="form-label">Nombre</label>
+                        <label for="descripcion" class="form-label">Descripción</label>
                         <input name="descripcion" type="text" class="form-control" id="descripcion" maxlength="200" th:value="${juego.descripcion}" required>
                     </div>
 
                     <div class="mb-3">
-                        <select class="form-select" aria-label="Default select example" name="regionID">
+                        <label class="form-label">Plataforma</label>
+                        <select class="form-select" aria-label="Default select example" name="idplataforma">
 
-                            <option th:each="plataforma : ${listaPlataformas}" th:value="${plataforma.idplataforma}" th:if="${juego.idjuego == plataforma.idplataforma}"  th:text="${plataforma.nombre}" selected></option>
-                            <option th:each="plataforma : ${listaPlataformas}" th:value="${plataforma.idplataforma}" th:unless="${juego.idjuego == plataforma.idplataforma}"  th:text="${plataforma.nombre}"></option>
+                            <option th:each="plataforma : ${listaPlataformas}" th:value="${plataforma.idplataforma}" th:if="${juego.idplataforma == plataforma.idplataforma}"  th:text="${plataforma.nombre}" selected></option>
+                            <option th:each="plataforma : ${listaPlataformas}" th:value="${plataforma.idplataforma}" th:unless="${juego.idplataforma == plataforma.idplataforma}"  th:text="${plataforma.nombre}"></option>
                         </select>
                     </div>
 
                     <div class="mb-3">
-                        <label for="precio" class="form-label">Nombre</label>
+                        <label for="precio" class="form-label">Precio</label>
                         <input name="precio" type="number" class="form-control" id="precio" th:value="${juego.precio}" required>
                     </div>
 
