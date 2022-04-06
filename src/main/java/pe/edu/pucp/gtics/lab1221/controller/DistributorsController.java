@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import pe.edu.pucp.gtics.lab1221.entity.Distributors;
 import pe.edu.pucp.gtics.lab1221.repository.DistributorsRepository;
 
@@ -28,7 +29,7 @@ public class DistributorsController {
 
 
 
-    public String editarDistribuidoras(Model model){
+    public String editarDistribuidoras(@RequestParam("id")int id, Model model){
             Optional<Distributors> optionalDistribuidoras = distributorsRepository.findById(id);
             if(optionalDistribuidoras.isPresent()){
                 Distributors distribuidoras = optionalDistribuidoras.get();
@@ -48,7 +49,7 @@ public class DistributorsController {
             return "redirect:/distribuidoras/lista";
     };
 
-    public String borrarDistribuidora(){
+    public String borrarDistribuidora(@RequestParam("id") int id){
             Optional<Distributors> optionalDistribuidoras = distributorsRepository.findById(id);
             if(optionalDistribuidoras.isPresent()){
                 distributorsRepository.deleteById(id);
