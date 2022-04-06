@@ -2,6 +2,7 @@ package pe.edu.pucp.gtics.lab1221.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,7 @@ public class DistributorsController {
 
     @GetMapping("/lista")
     public String listaDistribuidoras (Model model){
-        List<Distributors> listaDistribuidoras= distributorsRepository.findAll();
+        List<Distributors> listaDistribuidoras= distributorsRepository.findAll(Sort.by("nombre"));
         model.addAttribute("listaDistribuidoras",listaDistribuidoras);
         return "distribuidoras/lista";
     }
@@ -53,14 +54,14 @@ public class DistributorsController {
         return "redirect:/distribuidoras/lista";
     }
 
-    @GetMapping("/borrar")
+    /*@GetMapping("/borrar")
     public String borrarDistribuidora(@RequestParam("id") int id){
         Optional<Distributors> optionalDistribuidoras = distributorsRepository.findById(id);
         if (optionalDistribuidoras.isPresent()) {
             distributorsRepository.deleteById(id);
         }
         return "redirect:/distribuidoras/lista";
-    }
+    }*/
 
 }
 //prueba

@@ -69,8 +69,8 @@
                         <td th:text="${distribuidoras.nombre}"></td>
                         <td th:text="${distribuidoras.fundacion}"></td>
                         <td th:text="${distribuidoras.sede}"></td>
-                        <td><a class="btn btn-primary" th:href="@{'/distribuidoras/editar?id=' + ${distribuidoras.id}}">Editar</a></td>
-                        <td><a class="btn btn-danger" th:href="@{'/distribuidoras/borrar?id=' + ${distribuidoras.id}}">Borrar</a></td>
+                        <td><a class="btn btn-primary" th:href="@{'/distribuidoras/editar?id=' + ${distribuidoras.iddistribuidora}}">Editar</a></td>
+                        <td><a class="btn btn-danger" th:href="@{'/distribuidoras/borrar?id=' + ${distribuidoras.iddistribuidora}}">Borrar</a></td>
                     </tr>
                     </tbody>
                 </table>
@@ -81,7 +81,7 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Colocar # Grupo - PUCP @ 2022</div>
+                    <div class="text-muted">Grupo 4 - PUCP @ 2022</div>
                 </div>
             </div>
         </footer>

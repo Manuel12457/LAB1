@@ -18,7 +18,7 @@ public class Distributors {
     private String nombre;
     @Column(name = "descripcion")
     private String descripcion;
-    @Column(name = "fundacion")
+    @Column(name = "fundacion", nullable = false)
     private Integer fundacion;
     @Column(name = "sede")
     private String sede;
