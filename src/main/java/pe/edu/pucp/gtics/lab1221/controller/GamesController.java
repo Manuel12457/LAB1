@@ -51,8 +51,6 @@ public class GamesController {
     @PostMapping("/guardar")
     public String guardarJuegos(Games juego){
 
-        System.out.println("distribuidora: " + juego.getIddistribuidora());
-
         gamesRepository.save(juego);
         return "redirect:/juegos/lista";
     };
