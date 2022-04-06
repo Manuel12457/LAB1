@@ -4,12 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pe.edu.pucp.gtics.lab1221.entity.Games;
+import pe.edu.pucp.gtics.lab1221.entity.Platforms;
 import pe.edu.pucp.gtics.lab1221.repository.GamesRepository;
+import pe.edu.pucp.gtics.lab1221.repository.PlatformsRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +19,8 @@ public class GamesController {
 
     @Autowired
     GamesRepository gamesRepository;
+    @Autowired
+    PlatformsRepository platformsRepository;
 
     @GetMapping("/lista")
     public String listaJuegos (Model model){
@@ -34,8 +35,12 @@ public class GamesController {
 
         Optional<Games> optionalGames = gamesRepository.findById(id);
         if (optionalGames.isPresent()) {
+
             Games juego = optionalGames.get();
             model.addAttribute("juego", juego);
+
+            List<Platforms> listaPlataformas = platformsRepository.findAll();
+            model.addAttribute("listaPlataformas", listaPlataformas);
 
             return "juegos/editar";
         } else {
@@ -43,8 +48,11 @@ public class GamesController {
         }
     };
 
-    public String guardarJuegos(){
-        return "";
+    @PostMapping("/guardar")
+    public String guardarJuegos(Games juego){
+
+        gamesRepository.save(juego);
+        return "redirect:/juegos/lista";
     };
 
 }

@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.com">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -48,13 +48,31 @@
             <h2>Editar Juego</h2>
         </div>
         <div class="container-fluid">
-                <form method="POST">
-                    <!-- Completar -->
-                    <!-- Completar -->
-                    <!-- Completar -->
-                    <!-- Completar -->
+                <form method="POST" th:action="@{'/juegos/guardar'}">
+                    <input name="idjuego" type="number" class="form-control" id="idjuego" th:value="${juego.idjuego}" hidden>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input name="nombre" type="text" class="form-control" id="nombre" maxlength="50" th:value="${juego.nombre}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">Nombre</label>
+                        <input name="descripcion" type="text" class="form-control" id="descripcion" maxlength="200" th:value="${juego.descripcion}" required>
+                    </div>
 
-                    <a  class="btn btn-danger">Cancelar</a>
+                    <div class="mb-3">
+                        <select class="form-select" aria-label="Default select example" name="regionID">
+
+                            <option th:each="plataforma : ${listaPlataformas}" th:value="${plataforma.idplataforma}" th:if="${juego.idjuego == plataforma.idplataforma}"  th:text="${plataforma.nombre}" selected></option>
+                            <option th:each="plataforma : ${listaPlataformas}" th:value="${plataforma.idplataforma}" th:unless="${juego.idjuego == plataforma.idplataforma}"  th:text="${plataforma.nombre}"></option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">Nombre</label>
+                        <input name="precio" type="number" class="form-control" id="precio" th:value="${juego.precio}" required>
+                    </div>
+
+                    <a th:href="@{'/juegos/lista'}" class="btn btn-danger">Cancelar</a>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
         </div>
